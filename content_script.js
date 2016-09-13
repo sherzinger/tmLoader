@@ -1,15 +1,13 @@
-function triggerScenario(scenario) {
+function injectFile(file) {
     var script = document.createElement('script');
-    script.src = chrome.extension.getURL('scenarios/' + scenario);
+    script.src = chrome.extension.getURL(file);
     script.onload = function() {
         this.remove();
     };
     (document.head || document.documentElement).appendChild(script);
 }
 
-chrome.runtime.onMessage.addListener(function(request) {
-    triggerScenario(request.script);
-});
+injectFile('utils.js');
 
 document.addEventListener('keypress', function(e) {
     e = e || window.event;
@@ -17,11 +15,20 @@ document.addEventListener('keypress', function(e) {
     
     switch (String.fromCharCode(charCode)) {
         case '1': {
-            triggerScenario('linegraph-timeseries-some.js');
+            injectFile('scenarios/linegraph1.js');
             break;
         }
         case '2': {
-            triggerScenario('linegraph-timeseries-female_male.js');
+            injectFile('scenarios/linegraph2.js');
+            break;
+        }
+        case '3': {
+            injectFile('scenarios/linegraph3.js');
+            break;
+        }
+
+        case '4': {
+            injectFile('scenarios/boxplot1.js');
             break;
         }
     }

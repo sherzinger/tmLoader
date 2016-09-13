@@ -11,8 +11,11 @@
         "js": ["content_script.js"]
     }],
     "web_accessible_resources": [
-        "scenarios/linegraph-timeseries-some.js",
-        "scenarios/linegraph-timeseries-female_male.js"
+        "utils.js",
+        "scenarios/linegraph1.js",
+        "scenarios/linegraph2.js",
+        "scenarios/linegraph3.js",
+        "scenarios/boxplot1.js"
     ],
     "browser_action": {
         "default_popup": "tmLoader.html"
