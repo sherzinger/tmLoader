@@ -13,9 +13,9 @@ waitForAngular().then(function() {
     setWorkflow('linegraph').then(function() {
         waitForTemplate().then(function() {
             var scope = getControllerScope('Linegraph');
-            setData(TIMESERIES.NUMDATA, TIMESERIES.CATDATA, TIMESERIES.HDDATA).then(function() {
+            setData(TIMESERIES.NUMDATA, TIMESERIES.CATDATA, undefined).then(function() {
                 scope.fetch.selectedBiomarkers = [
-                    {id: 1841592, type: "Gene", name: "MX1", synonyms: "(IFI78, MxA, IFI-78K, MX)", $$hashKey: "object:39"}
+                    {id: 1866093, type: "Gene", name: "MTM1", synonyms: "(MTMX, CNM, XLMTM)", $$hashKey: "object:343"}
                 ];
                 scope.$apply();
                 fetchData().then(function() {
